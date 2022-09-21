@@ -1,12 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding Path=Quarto.descricao}"
              x:Class="AppHotel.View.HospedagemCalculada">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            
+            <StackLayout Orientation="Vertical">
+                <Label Text="Total Diária"
+                       FontSize="Title"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Qtde Adulto:" Style="{StaticResource LabelsCampos}"/>
+                <Label Text="{Binding QuantidadeAdultos}" Style="{StaticResource ValoresCampos}"/>
+
+                <Label Text="Qtde Crianças:" Style="{StaticResource LabelsCampos}"/>
+                <Label Text="{Binding QuantidadeCriancas}" Style="{StaticResource ValoresCampos}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Quarto:" Style="{StaticResource LabelsCampos}"/>
+                <Label Text="{Binding Path=Quarto.descricao}" Style="{StaticResource ValoresCampos}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical">
+                <Label Text="Check-In:" HorizontalOptions="FillAndExpand"/>
+                <Label x:Name="lblCheckIn" Text="{Binding DataCheckIn}" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Text="Check-Out" HorizontalOptions="FillAndExpand"/>
+                <Label x:Name="lblCheckOut" Text="{Binding DataCheckOut}" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Text="Qtde dias" HorizontalOptions="FillAndExpand"/>
+                <Label x:Name="lblQtde_dias" Text="{Binding QuantidadeDias}" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total Hospedagem:" Style="{StaticResource LabelsCampos}"/>
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" Style="{StaticResource ValoresCampos}" />
+            </StackLayout>
+
+            <Button Text="Voltar" Clicked="Button_Clicked" />
+
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

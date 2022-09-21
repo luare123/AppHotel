@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AppHotel.Model
 {
-    internal class Suite
+    public class Suite
     {
         public string descricao { get; set; }
         public double ValorDiariaAdulto { get; set; }
